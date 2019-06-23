@@ -5,6 +5,7 @@ open System.Drawing
 open SiegeConclude
 open SiegeTypes
 open System.Diagnostics
+open System.IO
 
 let private timeProcedure message thunk =
   printfn "%s..." message
@@ -60,11 +61,12 @@ let main argv =
   printfn "Starting SiegeConclude"
 
   printfn "Loading screenshots..."
+  let testingResource file = Path.Combine("TestingResources", file)
   let screenshots = 
     [
-      @"C:\Users\snick\Desktop\siegeScreenshot.png"
-      @"C:\Users\snick\Desktop\siegeScreenshot2.png"
-      @"C:\Users\snick\Desktop\siegeScreenshot3.png"
+      testingResource "siegeScreenshot.png"
+      testingResource "siegeScreenshot2.png"
+      testingResource "siegeScreenshot3.png"
     ]
     |> List.map ImageFilePath.screenshot
     |> List.map (fun path -> (path, path |> ImageFilePath.openImage))
