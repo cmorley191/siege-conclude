@@ -1,0 +1,6 @@
+.vs
+*/.vs
+packages
+*/bin
+*/obj
+*.user
